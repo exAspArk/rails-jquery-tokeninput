@@ -1,24 +1,60 @@
-# Rails::Jquery::Tokeninput
+# rails-jquery-tokeninput
 
-TODO: Write a gem description
+Integrating [Tokeninput](http://loopj.com/jquery-tokeninput/) jQuery plugin version 1.6.1.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'rails-jquery-tokeninput'
+```ruby
+gem 'rails-jquery-tokeninput'
+```
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
+Require jquery.tokeninput.js in your application.js
 
-    $ gem install rails-jquery-tokeninput
+```js
+//= require jquery
+//= require jquery.tokeninput
+```
+
+Add the stylesheets you want to use in your application.css
+
+```css
+*= require_self
+*= require token-input-facebook
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+To start using **rails-jquery-tokeninput** you just have to add attributes to your text input:
+
+```ruby
+names = [{ id: 1, name: 'John' }, { id: 2, name: 'Mike' }]
+options = { options: { theme: 'facebook' } }
+
+f.text_field :names, class: 'tokeninput', data: { tokeninput: {
+  collection: names,
+  options: options
+}}
+```
+
+If you are using Simple Form or Formtastic it may looks like:
+
+```ruby
+countries = [{ name: 'Hong Kong', iso_code: 'HK' }, { name: 'Jamaica', iso_code: 'JM' }]
+options = { theme: 'facebook', tokenValue: 'iso_code' }
+
+f.input :countries, as: :string, input_html: { class: 'tokeninput', data: {
+  tokeninput: {
+    collection: countries,
+    options: options
+  }
+}}
+```
 
 ## Contributing
 
