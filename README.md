@@ -18,7 +18,7 @@ Require jquery.tokeninput.js in your application.js
 
 ```js
 //= require jquery
-//= require jquery.tokeninput
+//= require rails-jquery-tokeninput
 ```
 
 Add the stylesheets you want to use in your application.css

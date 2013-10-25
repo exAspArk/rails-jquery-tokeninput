@@ -1,3 +1,5 @@
+//= require jquery.tokeninput
+
 $(function() {
     for (var input in ('.tokeninput')) {
         $(input).tokenInput(
