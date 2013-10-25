@@ -1,10 +1,10 @@
 //= require jquery.tokeninput
 
 $(function() {
-    for (var input in ('.tokeninput')) {
+    $.each($('.tokeninput'), function(index, input) {
         $(input).tokenInput(
             $(input).data('tokeninput').collection,
             $(input).data('tokeninput').options
-        )
-    }
+        );
+    });
 });

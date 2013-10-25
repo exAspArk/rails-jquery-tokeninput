@@ -34,12 +34,8 @@ To start using **rails-jquery-tokeninput** you just have to add attributes to yo
 
 ```ruby
 names = [{ id: 1, name: 'John' }, { id: 2, name: 'Mike' }]
-options = { options: { theme: 'facebook' } }
 
-f.text_field :names, class: 'tokeninput', data: { tokeninput: {
-  collection: names,
-  options: options
-}}
+f.text_field :names, class: 'tokeninput', data: { tokeninput: { collection: names } }
 ```
 
 If you are using Simple Form or Formtastic it may looks like:

@@ -3,7 +3,8 @@ require 'rails/jquery/tokeninput/version'
 module Rails
   module Jquery
     module Tokeninput
-      # Your code goes here...
+      class Engine < ::Rails::Engine
+      end
     end
   end
 end
