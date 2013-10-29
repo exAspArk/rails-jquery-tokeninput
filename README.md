@@ -30,7 +30,7 @@ Add the stylesheets you want to use in your application.css:
 
 ## Usage
 
-To start using **rails-jquery-tokeninput** you just have to add data-attribute to your text input:
+To start using gem you just have to add data-attribute to your text input:
 
 ```ruby
 names = [{ id: 1, name: 'John' }, { id: 2, name: 'Mike' }]
@@ -48,6 +48,8 @@ f.input :countries, as: :string, input_html: {
   data: { tokeninput: { collection: countries, options: options } }
 }
 ```
+
+It will automatically pass input values to your controller like an array.
 
 ## Contributing
 
