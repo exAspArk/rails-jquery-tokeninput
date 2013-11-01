@@ -1,7 +1,7 @@
 module ActionView
   module Helpers
     def text_field(object_name, method, options = {})
-      if tokeninput?(options) && need_to_pre_populate?(object_name, method)
+      if tokeninput?(options) && need_to_pre_populate?(object_name, method, options)
         options[:data][:tokeninput][:options][:prePopulate] = items_to_prepopulation(object_name, method, options)
       end
       Tags::TextField.new(object_name, method, self, options).render
@@ -13,17 +13,12 @@ module ActionView
       options[:data] && options[:data][:tokeninput]
     end
 
-    def need_to_pre_populate?(object_name, method)
-      sent_items(object_name, method).any?
+    def need_to_pre_populate?(object_name, method, options)
+      passed_or_saved_items(object_name, method, options).any?
     end
 
-    def sent_items(object_name, method)
-      default = []
-      begin
-        params[object_name][method] || default
-      rescue
-        default
-      end
+    def passed_or_saved_items(object_name, method, options)
+      (params[object_name] && params[object_name][method]) || (options[:object] && options[:object][method]) || []
     end
 
     def token_value(options)
@@ -36,11 +31,12 @@ module ActionView
     end
 
     def items_to_prepopulation(object_name, method, options)
-      _token_value = token_value(options)
-      _sent_items = sent_items(object_name, method)
+      token_value = token_value(options)
+
+      items = passed_or_saved_items(object_name, method, options)
 
       options[:data][:tokeninput][:collection].select do |item|
-        _sent_items.include?(item[_token_value].to_s)
+        items.include?(item[token_value].to_s)
       end
     end
   end
