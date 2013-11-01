@@ -5,23 +5,29 @@ $(function() {
         var inputName = $(input).attr('name');
         var options = $(input).data('tokeninput').options;
 
+        var add_input = function(value) {
+            var inputItemName  = inputName + '[]';
+            $('<input name="' + inputItemName + '" type="text" style="display: none;" value="' + value + '">').insertAfter(input);
+        }
+
+        var add_item = function(item) {
+            var inputItemValue = item[$(input).data('tokeninput').options.tokenValue || 'id'];
+            add_input(inputItemValue);
+        }
+
         $(input).attr('name', '');
 
-        options.onAdd = function(item) {
-            var inputItemName  = inputName + '[]';
-            var inputItemValue = item[$(input).data('tokeninput').options.tokenValue || 'id'];
-
-            $('<input name="' + inputItemName + '" type="text" style="display: none;" value="' + inputItemValue + '">').insertAfter(input);
-        };
+        options.onAdd = add_item;
 
         options.onDelete = function(item) {
             var inputItemValue = item[$(input).data('tokeninput').options.tokenValue || 'id'];
             $('input[value="' + inputItemValue + '"]').remove();
+            add_input('');
         };
 
-        if (options.prePopulate) {
+        if(options.prePopulate) {
             $.each(options.prePopulate, function(index, itemToPrePopulate) {
-                options.onAdd(itemToPrePopulate)
+                add_item(itemToPrePopulate)
             });
         }
 

@@ -49,8 +49,9 @@ f.input :countries, as: :string, input_html: {
 }
 ```
 
-It will automatically pass input values to your controller like an array.
-And it also automatically pre populate items.
+It will automatically pass input values to your controller like an array (works well with pg_array).
+
+It also automatically pre populate existed items.
 
 ## Contributing
 
