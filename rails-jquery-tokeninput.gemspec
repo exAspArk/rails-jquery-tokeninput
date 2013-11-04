@@ -19,6 +19,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_development_dependency 'activemodel'
+  spec.add_development_dependency 'sprockets-rails'
+
   spec.add_development_dependency 'rspec-rails'
   spec.add_development_dependency 'capybara'
   spec.add_development_dependency 'poltergeist'
