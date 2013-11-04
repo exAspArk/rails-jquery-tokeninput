@@ -33,7 +33,7 @@ To start using gem you just have to add data-attribute to your text input:
 ```ruby
 names = [{ id: 1, name: 'John' }, { id: 2, name: 'Mike' }]
 
-f.text_field :names, data: { tokeninput: { collection: names } }
+f.text_field :user, :names, 'data-tokeninput' => { collection: names }.to_json
 ```
 
 Or if you are using Simple Form or Formtastic it may looks like:
