@@ -17,14 +17,12 @@ And then execute:
 Require jquery.tokeninput.js in your application.js:
 
 ```js
-//= require jquery
 //= require rails-jquery-tokeninput
 ```
 
 Add the stylesheets you want to use in your application.css:
 
 ```css
-*= require_self
 *= require token-input-facebook
 ```
 
