@@ -1,1 +1,1 @@
-<%= text_field_tag :countries, '', 'data-tokeninput' => { collection: countries, options: options }.to_json %>
+<%= text_field_tag :countries, '', 'data-tokeninput' => { collection: Country.all, options: { theme: 'facebook', tokenValue: 'iso_code' } }.to_json %>

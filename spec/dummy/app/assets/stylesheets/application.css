@@ -12,3 +12,7 @@
  *= require token-input-facebook
  *= require_tree .
  */
+
+body {
+  height: 200px;
+}
