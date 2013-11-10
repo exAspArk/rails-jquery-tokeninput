@@ -35,6 +35,15 @@ class WorldPage < Struct.new(:path)
     page.has_css?(".#{ selected_token['class'].split(' ').join('.') }")
   end
 
+  def pass_data
+    click_button('Create World')
+  end
+
+  def response
+    JSON.parse body.gsub('<html><head></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">', '').
+                    gsub('</pre></body></html>', '')
+  end
+
 private
 
   def tokeninput

@@ -1,4 +1,4 @@
-<%= form_for @world do |f| %>
+<%= form_for @world, url: show_data_worlds_path(format: :json), method: :get do |f| %>
   <%= f.text_field :countries, 'data-tokeninput' => { collection: Country.all, options: { theme: 'facebook', tokenValue: 'iso_code' } }.to_json %>
   <%= f.submit %>
 <% end %>
