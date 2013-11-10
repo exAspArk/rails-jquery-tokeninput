@@ -1,4 +1,4 @@
-class HomePage < Struct.new(:path)
+class WorldPage < Struct.new(:path)
   include Capybara::DSL
 
   def visit_page
@@ -6,7 +6,7 @@ class HomePage < Struct.new(:path)
     self
   end
 
-  def enter_character(key_code)
+  def enter_key_code_to_tokeninput(key_code)
     tokeninput.click
     page.execute_script %Q{
       var e = jQuery.Event('keydown', { which: #{ key_code } });
@@ -38,6 +38,6 @@ class HomePage < Struct.new(:path)
 private
 
   def tokeninput
-    find('#token-input-countries')
+    find('#token-input-world_countries')
   end
 end

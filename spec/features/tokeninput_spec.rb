@@ -1,21 +1,21 @@
 require 'spec_helper'
-require 'features/pages/home_page'
+require 'features/pages/world_page'
 
 feature 'Tokeninput' do
-  let(:home_page) { HomePage.new(root_path) }
-  let(:country)   { Country.first }
+  let(:world_page) { WorldPage.new(root_path) }
+  let(:country)    { Country.first }
 
   scenario 'Adding token', js: true do
-    home_page.visit_page
+    world_page.visit_page
 
-    home_page.enter_character(74) # 'J'
+    world_page.enter_key_code_to_tokeninput(74) # 'J'
 
-    expect(home_page).to be_with_dropdown
-    expect(home_page.dropdown).to have_content(country[:name])
+    expect(world_page).to be_with_dropdown
+    expect(world_page.dropdown).to have_content(country[:name])
 
-    home_page.select_first_token
+    world_page.select_first_token
 
-    expect(home_page).to be_with_selected_token
-    expect(home_page.selected_token).to have_content(country[:name])
+    expect(world_page).to be_with_selected_token
+    expect(world_page.selected_token).to have_content(country[:name])
   end
 end

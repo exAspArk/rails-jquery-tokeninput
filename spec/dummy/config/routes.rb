@@ -1,3 +1,5 @@
 Dummy::Application.routes.draw do
-  root to: 'home#index'
+  root to: 'worlds#new'
+
+  resource :worlds, only: [:new, :create, :show]
 end
