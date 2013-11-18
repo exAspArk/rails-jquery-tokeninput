@@ -1,4 +1,4 @@
-# rails-jquery-tokeninput
+# rails-jquery-tokeninput [![Build Status](https://travis-ci.org/exAspArk/rails-jquery-tokeninput.png)](https://travis-ci.org/exAspArk/rails-jquery-tokeninput)
 
 Integrating [Tokeninput](http://loopj.com/jquery-tokeninput/) jQuery plugin version 1.6.1.
 
