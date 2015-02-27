@@ -1,0 +1,4 @@
+.ruby-version
+Gemfile.lock
+spec/dummy/log/test.log
+spec/dummy/tmp/

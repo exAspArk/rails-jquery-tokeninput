@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'features/pages/world_page'
 
-feature 'Tokeninput:' do
+feature 'Tokeninput' do
   let(:world_page) { WorldPage.new(root_path) }
   let(:country)    { Country.first }
 
@@ -21,9 +21,5 @@ feature 'Tokeninput:' do
     world_page.pass_data
 
     expect(world_page.response['countries']).to match_array([country[:iso_code]])
-  end
-
-  scenario 'adding and removing tokens', js: true do
-    pending 'will come soon'
   end
 end

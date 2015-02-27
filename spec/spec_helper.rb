@@ -6,5 +6,6 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/rails'
 require 'capybara/poltergeist'
+require 'pry-byebug'
 
 Capybara.javascript_driver = :poltergeist

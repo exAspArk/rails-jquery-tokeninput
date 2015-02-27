@@ -1,3 +1,5 @@
+require 'active_model'
+
 class World
   include ActiveModel::Conversion
   extend  ActiveModel::Naming
