@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'jquery-rails', '~> 2'
+  spec.add_dependency 'jquery-rails', '>= 2'
 
   spec.add_development_dependency 'activemodel', '~> 4.1.9'
   spec.add_development_dependency 'actionpack', '~> 4.1.9'
